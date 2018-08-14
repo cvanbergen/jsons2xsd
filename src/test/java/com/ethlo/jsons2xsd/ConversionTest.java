@@ -92,6 +92,23 @@ public class ConversionTest
             assertThat(actual).isXmlEqualTo(load("schema/arrayschema2.xsd"));
         }
     }
+
+    @Test
+    public void testArraySchema3() throws IOException, TransformerException
+    {
+        try (final Reader r = reader("/schema/arrayschema3.json"))
+        {
+            final Config cfg = new Config.Builder()
+                    .createRootElement(false)
+                    .targetNamespace("http://ethlo.com/schema/array-test-1.0.xsd")
+                    .name("array3")
+                    .validateXsdSchema(false)
+                    .build();
+            final Document doc = Jsons2Xsd.convert(r, cfg);
+            final String actual = XmlUtil.asXmlString(doc.getDocumentElement());
+            assertThat(actual).isXmlEqualTo(load("schema/arrayschema3.xsd"));
+        }
+    }
     
     @Test
     public void testPetSchema() throws IOException, TransformerException

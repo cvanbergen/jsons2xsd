@@ -1,0 +1,23 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "prices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "price": {
+              "type": "number",
+              "minimum": 1
+            }
+          },
+          "minItems": 1,
+          "required": ["price"]
+        }
+      }
+    },
+    "required": ["prices"]
+  }
+}

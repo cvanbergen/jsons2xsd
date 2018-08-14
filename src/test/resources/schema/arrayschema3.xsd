@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified"
+		targetNamespace="http://ethlo.com/schema/array-test-1.0.xsd"
+		xmlns="http://www.w3.org/2001/XMLSchema" xmlns:x="http://ethlo.com/schema/array-test-1.0.xsd">
+	<complexType name="array3">
+		<sequence>
+			<element name="prices">
+				<complexType>
+					<sequence>
+						<element name="price">
+							<simpleType>
+								<restriction base="decimal">
+									<minInclusive value="1"/>
+								</restriction>
+							</simpleType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+</schema>
