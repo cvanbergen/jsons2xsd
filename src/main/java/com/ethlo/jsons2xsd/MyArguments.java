@@ -1,8 +1,13 @@
 package com.ethlo.jsons2xsd;
 
 public class MyArguments {
+
     private boolean _error = false;
-    public  String errorMessage = "";
+    private String _jsonSchemaPath = "";
+    private String _xsdOutputPath = "";
+    private String _rootName = "Array";
+    private String _targetNamespace = "http://ethlo.com/schema/array-test-1.0.xsd";
+
     public MyArguments(String[] args) {
         errorMessage = "";
         try {
@@ -17,21 +22,29 @@ public class MyArguments {
                     _targetNamespace = args[i + 1];
                 }
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             errorMessage = e.getMessage();
             _error = true;
         }
     }
-    String _jsonSchemaPath = "";
-    String _xsdOutputPath = "";
-    String _rootName = "Array";
-    String _targetNamespace = "http://ethlo.com/schema/array-test-1.0.xsd";
 
-    public String getJsonSchemaPath(){return _jsonSchemaPath;}
-    public String getXsdOutputPath(){return _xsdOutputPath;}
-    public String getRootName(){return _rootName;}
-    public String getTargetNamespace(){return _targetNamespace;}
+    public String errorMessage = "";
+
+    public String getJsonSchemaPath() {
+        return _jsonSchemaPath;
+    }
+
+    public String getXsdOutputPath() {
+        return _xsdOutputPath;
+    }
+
+    public String getRootName() {
+        return _rootName;
+    }
+
+    public String getTargetNamespace() {
+        return _targetNamespace;
+    }
 
     public boolean hasErrors() {
         return _error;
