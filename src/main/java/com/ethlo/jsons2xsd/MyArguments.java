@@ -11,6 +11,9 @@ public class MyArguments {
     public MyArguments(String[] args) {
         errorMessage = "";
         try {
+            if (args.length%2!=0 || args.length==0){
+                throw new IllegalArgumentException();
+            }
             for (int i = 0; i < args.length; i = i + 2) {
                 if (args[i].equals("-j")) {
                     _jsonSchemaPath = args[i + 1];
