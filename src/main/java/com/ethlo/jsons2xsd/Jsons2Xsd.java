@@ -294,8 +294,9 @@ public class Jsons2Xsd
             String fixRef = refs.asText().replace("#/definitions/", cfg.getNsAlias() + ":");
             String name = fixRef.substring(cfg.getNsAlias().length() + 1);
             nodeElem.setAttribute(FIELD_NAME, name);
+            if (!fixRef.equals("enum")) {
             nodeElem.setAttribute("type", fixRef);
-
+            }
             neededElements.add(name);
         }
     }
@@ -335,7 +336,9 @@ public class Jsons2Xsd
         if (!XSD_OBJECT.equals(xsdType) && !XSD_ARRAY.equals(xsdType))
         {
             // Simple type
+            if (!xsdType.equals("enum")) {
             nodeElem.setAttribute("type", xsdType);
+        }
         }
 
         if (!required)
@@ -387,8 +390,9 @@ public class Jsons2Xsd
         {
             nodeElem.setAttribute(FIELD_NAME, name);
         }
+        if (!fixRef.equals("enum")) {
         nodeElem.setAttribute("type", fixRef);
-
+        }
         neededElements.add(name);
     }
 
@@ -489,7 +493,9 @@ public class Jsons2Xsd
         else
         {
             arrElem.setAttribute(FIELD_NAME, "item");
+            if (!arrayXsdType.equals("enum")){
             arrElem.setAttribute("type", arrayXsdType);
+        }
         }
 
         // Minimum items
