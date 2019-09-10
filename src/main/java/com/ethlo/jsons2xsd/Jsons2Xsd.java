@@ -95,6 +95,9 @@ public class Jsons2Xsd
         typeMapping.put("string|regex", XsdSimpleType.STRING_VALUE);
         typeMapping.put("string|color", XsdSimpleType.STRING_VALUE);
         typeMapping.put("string|style", XsdSimpleType.STRING_VALUE);
+        typeMapping.put("integer|int32", XsdSimpleType.INT_VALUE);
+        typeMapping.put("integer|int64", XsdSimpleType.LONG_VALUE);
+        typeMapping.put("number|double", XsdSimpleType.DECIMAL_VALUE);
     }
 
     private Jsons2Xsd()
